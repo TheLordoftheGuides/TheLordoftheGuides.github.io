@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Mapa interactivo de Lost Ark en español. Completa el tomo del aventurero de cada zona encontrando las mokokos, historias ocultas, otras historias, montruos y mucho más. Rowen, Berna del Sur, Berna, Papunika, Feiton, Rohendel, Yorn, Rethramis, Luterania, Yudia, Tortoyk, Anikka, Arthetine, Sushire..">
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+    <meta name="keywords" content="lost ark map, mapa lost ark, mapa lost ark en español, lost ark mapa en español, mokokos, tomo del aventurero, tomo del aventurero lost ark, lost ark tomo del aventurero, afinidad, historia oculta, otra historia, monstruos tomo del aventurero, islas lost ark, semillas mokoko, platos únicos lost ark, mazmorras lost ark,">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="The Lord of the Guides - Lost Ark fansite">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Mapa interactivo de Lost Ark en español">
+    <meta property="og:description" content="Mapa interactivo de Lost Ark en español. Completa el tomo del aventurero de cada zona encontrando las mokokos, historias ocultas, otras historias, montruos y mucho más. Rowen, Berna del Sur, Berna, Papunika, Feiton, Rohendel, Yorn, Rethramis, Luterania, Yudia, Tortoyk, Anikka, Arthetine, Sushire..">
+    <meta property="og:image" content="http://www.thelordoftheguides.com/lost-ark/wp-content/uploads/sites/5/2022/01/mapa-interactivo-lost-ark.jpg">
+    <meta property="og:image:secure_url" content="http://www.thelordoftheguides.com/lost-ark/wp-content/uploads/sites/5/2022/01/mapa-interactivo-lost-ark.jpg">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="288">
+    <meta property="og:image:alt" content="Mapa interactivo de Lost Ark en español. Rowen, Berna del Sur, Berna, Papunika, Feiton, Rohendel, Yorn, Rethramis, Luterania, Yudia, Tortoyk, Anikka, Arthetine, Sushire..">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mapa interactivo de Lost Ark en español">
+    <meta name="twitter:description" content="Utiliza el mapa interactivo de Lost Ark en español para completar todos los tomos del aventurero de Arkesia de manera fácil y rápida.">
+    <meta name="twitter:image" content="http://www.thelordoftheguides.com/lost-ark/wp-content/uploads/sites/5/2022/01/mapa-interactivo-lost-ark.jpg">
+    <meta name="twitter:label1" content="Tiempo de lectura">
+    <meta name="twitter:data1" content="15 minutos">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="www.thelordoftheguides.com"> 
+    <link rel="icon" type="image/png" href="tlotg.ico">
+    <link rel="stylesheet" href="leaflet.css" />
+    <link rel="stylesheet" href="mapa.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="leaflet.js"></script>
+    <title>Mapa de Lost Ark en español</title>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170633640-2"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-170633640-2');
+	</script>
+
+  </head>
+
+  <body>  
+    <!--CAMBIAR MAPA-->
+  <div id="mySidebar" class="sidebar"> 
+    <div id="myDropdown" class="dropdown-content">
+      <input onkeyup="filterFunction()" type="text" id="buscador" placeholder="Nombre mapa.." name="search" autocomplete="off">   
+    </div> 
+  </div>
+    <!--MARCADORES-->
+  <div id="sidebarMarcadores" class="sidebarMarcadores mostrar-side"> 
+    <h2 id="tituloh2"></h2>
+    <a id="tituloh4" href="" target="_blank"><span id="spantitulo"></span><span style="position:absolute; right:5px; bottom:0; color:white">ℹ️</span></a>
+    <h3 id="tituloh3"></h3>  
+    <div style="max-width: 235px;">
+      <div class="cluster-marcadores hidden" id="marcador-isla">
+        <img src="imagenes/iconos/iconos-arkesia/isla.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="islas">
+          Islas
+        </button>
+      </div>
+      <div style="display: none;" class="cluster-marcadores hidden" id="marcador-youtube">
+        <img src="imagenes/iconos/youtube.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="youtube">
+          Videos de las Mokokos
+        </button>
+      </div>
+      <div style="display: none;" class="cluster-marcadores hidden" id="marcador-mokokotip">
+        <img src="imagenes/iconos/mokoko3.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="mokokotip">
+          Mokokotip
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-islaaventura">
+        <img src="imagenes/iconos/iconos-arkesia/islaaventura.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="islasaventura">
+          Islas temporales
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-islapvp">
+        <img src="imagenes/iconos/iconos-arkesia/islapvp.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="islaspvp">
+          Islas PVP
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-islapvpaventura">
+        <img src="imagenes/iconos/iconos-arkesia/islapvpaventura.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="islaspvpaventura">
+          Islas PVP temporales
+        </button>
+      </div>  
+      <div class="cluster-marcadores hidden" id="marcador-ciudad">
+        <img src="imagenes/iconos/iconos-arkesia/berna.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="ciudades">
+          Zonas
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-barcofantasma">
+        <img src="imagenes/iconos/iconos-arkesia/barcofantasma.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="barcofantasma">
+          Barco Fantasma
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-portales">
+        <img src="imagenes/iconos/iconos-arkesia/portales.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="portales">
+          Portales
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-navegacioncooperativa">
+        <img src="imagenes/iconos/iconos-arkesia/navegacioncooperativa.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="navegacioncooperativa">
+          Navegación Cooperativa
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-mokoko">
+        <img src="imagenes/iconos/mokoko.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="mokokos">
+          Mokoko
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-pasillosecreto">
+        <img src="imagenes/iconos/pasillosecreto.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="pasillosecreto"> 
+          Pasillo secreto
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-fichadeisla">
+        <img src="imagenes/iconos/fichadeisla.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="fichadeisla">
+          Ficha de isla
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-barcomercante">
+        <img src="imagenes/iconos/iconos-arkesia/barcomercante.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="barcomercante">
+          Barco mercante
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-minuetodelbosque">
+        <img src="imagenes/iconos/minuetodelbosque.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="minuetodelbosque">
+          Minueto del Bosque
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-cancionderesonancia">
+        <img src="imagenes/iconos/cancionderesonancia.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="cancionderesonancia">
+          Canción de Resonancia
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-canciondeloslobos">
+        <img src="imagenes/iconos/canciondeloslobos.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="canciondeloslobos">
+          Canción de los Lobos
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-canciondearmonia">
+        <img src="imagenes/iconos/canciondearmonia.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="canciondearmonia">
+          Canción de Armonía
+        </button>
+      </div>   
+      <div class="cluster-marcadores hidden" id="marcador-requiemconmovedor">
+        <img src="imagenes/iconos/requiemconmovedor.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="requiemconmovedor">
+          Réquiem Conmovedor
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-canciondeprimavera">
+        <img src="imagenes/iconos/canciondeprimavera.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="canciondeprimavera">
+          Canción de Primavera
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-canciondeeternidad">
+        <img src="imagenes/iconos/canciondeeternidad.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="canciondeeternidad">
+          Canción de Eternidad
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-himnodelsol">
+        <img src="imagenes/iconos/himnodelsol.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="himnodelsol">
+          Himno del Sol
+        </button>
+      </div>   
+      <div class="cluster-marcadores hidden" id="marcador-armaromantica">
+        <img src="imagenes/iconos/armaromantica.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="armaromantica">
+          Arma Romántica
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-slime">
+        <img src="imagenes/iconos/slime.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="slime">
+          Babosa dorada
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-gesto">
+        <img src="imagenes/iconos/gesto.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="gesto">
+          Gesto
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-vista">
+        <img src="imagenes/iconos/vista.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="vista">
+          Vista
+        </button>
+      </div>   
+      <div class="cluster-marcadores hidden" id="marcador-afinidad">
+        <img src="imagenes/iconos/afinidad.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="afinidad">
+          Afinidad
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-cocinero">
+        <img src="imagenes/iconos/cocinero.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="cocinero">
+          Cocinero
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-ingrediente">
+        <img src="imagenes/iconos/ingrediente.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="ingrediente">
+          Ingredientes y platos
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-comercianteitinerante">
+        <img src="imagenes/iconos/comercianteitinerante.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="comercianteitinerante">
+          Mercader ambulante
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-prisionero">
+        <img src="imagenes/iconos/prisionero.png" width="32" height="29" />
+        <button onclick="toggleMarcador(this)" id="prisionero">
+          Prisionero
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-hielo">
+        <img src="imagenes/iconos/hielo.png" width="32" height="34" />
+        <button onclick="toggleMarcador(this)" id="hielo">
+          Bloques de hielo
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-misionsecreta">
+        <img src="imagenes/iconos/misionsecreta.png" width="32" height="32"/>
+        <button onclick="toggleMarcador(this)" id="misionsecreta">
+          Secreto
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-historiaoculta">
+        <img src="imagenes/iconos/historiaoculta.png" width="15" height="32" style="padding-left: 7px;" />
+        <button onclick="toggleMarcador(this)" id="historiaoculta">
+          Historia oculta
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-eventocooperativo">
+        <img src="imagenes/iconos/eventocooperativo.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="eventocooperativo">
+          Evento cooperativo
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-quest">
+        <img src="imagenes/iconos/quest.png" width="15" height="32" style="padding-left: 7px;" />
+        <button onclick="toggleMarcador(this)" id="quest">
+          Misión normal
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-questmorada">
+        <img src="imagenes/iconos/questmorada.png" width="15" height="32" style="padding-left: 7px;" />
+        <button onclick="toggleMarcador(this)" id="questmorada">
+          Misión morada
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-historiaadicional">
+        <img src="imagenes/iconos/historiaadicional.png" width="15" height="32" style="padding-left: 7px;"/>
+        <button onclick="toggleMarcador(this)" id="historiaadicional">
+          Otra historia
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-monstruos">
+        <img src="imagenes/iconos/monstruos.png" width="32" height="32"/>
+        <button onclick="toggleMarcador(this)" id="monstruos">
+          Monstruos
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-jefesdezona">
+        <img src="imagenes/iconos/jefesdezona.png" width="32" height="32"/>
+        <button onclick="toggleMarcador(this)" id="jefesdezona">
+          Jefe de zona
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-mazmorra">
+        <img src="imagenes/iconos/mazmorra.png" width="32" height="32"/>
+        <button onclick="toggleMarcador(this)" id="mazmorra">
+          Mazmorra
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-masterpiece">
+        <img src="imagenes/iconos/masterpiece.png" width="32" height="32"/>
+        <button onclick="toggleMarcador(this)" id="masterpiece">
+          Obras maestras
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-pasoprevio">
+        <img src="imagenes/iconos/pasoprevio.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="pasoprevio">
+          Paso previo
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-skillpoint">
+        <img src="imagenes/iconos/skillpoint.png" width="32" height="37" />
+        <button onclick="toggleMarcador(this)" id="skillpoint">
+          Punto de habilidad
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-vendedor">
+        <img src="imagenes/iconos/vendedor.png" width="35" height="32" />
+        <button onclick="toggleMarcador(this)" id="vendedor">
+          Vendedor
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-obramaestra">
+        <img src="imagenes/iconos/obramaestra.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="obramaestra">
+          Obra Maestra
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-corazondegigante">
+        <img src="imagenes/iconos/corazondegigante.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="corazondegigante">
+          Corazón de Gigante
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-campana">
+        <img src="imagenes/iconos/campana.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="campana">
+          Campana
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-escaleras">
+        <img src="imagenes/iconos/escaleras.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="escaleras">
+          Escaleras
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-portal">
+        <img src="imagenes/iconos/portal.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="portal">
+          Cambiar Zona
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-puntorojo">
+        <img src="imagenes/iconos/puntorojo.png" width="32" height="32" />
+        <button style="font-size: 11px;" onclick="toggleMarcador(this)" id="puntorojo">
+          Respuesta último acertijo
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-puntoazul">
+        <img src="imagenes/iconos/puntoazul.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="puntoazul">
+          Puzzles
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-puntonaranja">
+        <img src="imagenes/iconos/puntonaranja.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="puntonaranja">
+          Acertijos
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-puntorosa">
+        <img src="imagenes/iconos/puntorosa.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="puntorosa">
+          Canciones o Gestos
+        </button>
+      </div>
+      <div class="cluster-marcadores hidden" id="marcador-puntoverde">
+        <img src="imagenes/iconos/puntoverde.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="puntoverde">
+          Carrera Cronometrada
+        </button>
+      </div>
+    </div> 
+  </div>
+  
+  <div id="main">   
+  </div> 
+  <div id="mainMarcadores">
+  </div>  
+  <div id="container-map">  
+    <div id="titulo-div">
+      <h1 id="titulo-mapa"></h1>
+    </div>  
+    <button id="buscarmapa" class="botonsitos openbtn" onclick="openNav()"><span>🔍</span></button>
+    <button id="marcadores" class="botonsitos bottombox" onclick="openNavMarcadores()"><span>📌</span></button>
+    <button id="ayuda" onclick="paneldeayuda()" class="botonsitos"><span>❓</span></button>  
+    <button id="anterior" onclick="volverAnterior()" class="botonsitos"><img src="./imagenes/iconos/flecha.png"/></button>  
+    <a target="_blank" id="uncafe" href="https://www.buymeacoffee.com/LordoftheGuides" class="botonsitos"><img src="./imagenes/iconos/cafe.png"/></a>  
+    <a target="_blank" id="thelordoftheguides" href="https://www.thelordoftheguides.com/lost-ark/" class="botonsitos"><img src="./imagenes/iconos/thelordoftheguides.png"/></a>  
+    <a target="_blank" href="https://discord.gg/8TtPEE2J3R" id="discord" class="botonsitos"><img src="./imagenes/iconos/discord.png"/></a>     
+    <div id="copyright"><a target="_blank" href="https://www.thelordoftheguides.com/copyright/" >©2022 The Lord of the Guides - Todos los derechos reservados.</a></div>
+    <div id="panelayuda"> 
+      <div class="videohelp">
+        <div style="right: 0; top:0; position: absolute;" id='cerrarayuda' ><button class="botonsitos" style=' font-size: 20px;' onclick="cerrarAyuda()">❌</button></div>
+        <h2 style="margin-bottom: 32px;">¿Cómo funciona el mapa?</h2>
+        <div class="guiadiv"><a class="guia" href="https://www.youtube.com/watch?v=Q6HsuQxNkts" target="_blank">Vídeo explicativo</a></div>
+        <ul style='margin-top: 30px;'>
+          <li><b>Clic derecho:</b> Te devuelve al mapa anterior.</li>
+          <li><b>Clic izquierdo:</b> Te permite interactuar con los marcadores y botones del mapa.</li>
+        </ul>
+        <div style="text-align: left;">
+          <h2>Resumen de los marcadores</h2>
+          <ul style='margin-bottom: 10px;'>
+            <li><b>“Historias Ocultas” y “Otras historias”:</b> Haz clic en sus iconos para saber qué hacer o dónde se encuentran las otras partes.</li>
+            <li><b>Marcadores con nº:</b> Los números pertenecen a monstruos, vistas, platos, etc. del tomo del aventurero de cada zona.</li>
+            <li><b>Zonas:</b> Haz clic para ver el mapa de la zona.</li>
+            <li><b>Mazmorras:</b> Haz clic para ver el mapa de la mazmorra.</li>
+            <li><b>Islas:</b> Haz clic para ver el mapa de la isla o pasa el ratón por encima para ver más información.</li>
+            <li><b>Ingredientes y platos:</b> Haz clic para ver qué hacer con los ingredientes o platos.</li>
+            <li><b>Mokokos:</b> Haz clic en su icono para que se ponga de color gris, muy útil para marcar las que ya has conseguido. Ten en cuenta que si sales del mapa el color de las mokokos se reiniciará.</li>
+            <li>Las Mokoko del mapa se iluminarán si pasas el ratón por encima de las semillas Mokoko dentro del menú de marcadores.</li>
+            <li><b>Otros marcadores:</b> Muestran información extra al hacer clic en ellos.</li>
+            <li>Algunos marcadores no son clicables, solo muestran la localización de misiones, vendedores, etc.</li>
+          </ul>
+          <span>Si encuentras errores en el mapa o en alguna descripción, puedes ponerte en contacto con nosotros en <a href="https://discord.gg/8TtPEE2J3R" target="_blank">Discord</a> o por email (<b>info@thelordoftheguides.com</b>).</span>
+          <br />
+          <div style="text-align: center; margin-top: 10px;">¡Gracias!</div>
+        </div>
+      </div>
+    </div>
+  </div>  
+    <script src="js/ciudades.js"></script>
+    <script src="js/subzonas.js"></script>
+    <script src="js/mazmorras.js"></script>
+    <script src="js/iconos.js"></script>
+    <script src="js/otrosmarcadores.js"></script>
+    <script src="js/islas.js"></script>
+    <script src="js/cargar-marcadores.js"></script>
+    <script src="js/control-marcadores.js"></script>
+    <script src="js/mapa.js"></script>
+  </body>
+</html>
+
