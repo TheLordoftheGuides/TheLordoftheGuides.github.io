@@ -1808,8 +1808,8 @@ var islas = {
                 ],
                 "pasillosecreto": [[-119,498],[658.75,396.75]],
                 "pasillosecretodesc": [ 
-                    ["<div>Rompe la pared.</div>"], 
-                    ["<div>Utiliza la palanca.</div>"], 
+                    ["<div>Salto oculto.</div>"], 
+                    ["<div>Cruza la pared.</div>"], 
                 ], 
                 "vendedor": [[160,140]],
                 "cancion": [[72.5,769]],
@@ -3723,5 +3723,20 @@ var islas = {
             }, 
             "geometry": { "type": "Point", "coordinates": [135.53125,-157.84375] } 
         },
+        { 
+            "type": "Feature", 
+            "properties": {
+                "anterior": "arkesia", 
+                "tipo": "isla", 
+                "zona": "Isla",
+                "title": "bosquedelabrumaaberrante",
+                "nombre": "Bosque de la Bruma Aberrante",
+                "isladesc": "",
+                "horario": "Siempre accesible",
+                "ilvl" : "250", 
+                "mokokos": [[86.62058069535207,85.91347391416554],[147.5,727],[468.45824253608777,672.1049955178134]],  
+            }, 
+            "geometry": { "type": "Point", "coordinates": [220.78125,-118.65625] } 
+        }, 
     ]
 }
