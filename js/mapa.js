@@ -206,6 +206,14 @@ function arkesia(f){
                         html:'<div class="class-ciudad"><img width="50px" src="imagenes/ciudades/'+img+'.png"/><div class="label-ciudad">Castillo de Berna</div></div>'
                     }
                     )});  
+                }
+                if(label == "Elgacia"){ 
+                    var ciudadmarker = L.marker(latlng, {icon: L.divIcon({ 
+                        html:'<div class="class-ciudad image-cropper"><img id="elgacia" width="150px" src="imagenes/ciudades/'+img+'.png"/></div>'
+                    }
+                    )}); 
+                    ciudadmarker.addTo(ciudadGroup) 
+                    $(ciudadmarker._icon).addClass('elgacia');   
                 }else{ 
                     var ciudadmarker = L.marker(latlng, {icon: L.divIcon({ 
                         html:'<div class="class-ciudad"><img width="50px" src="imagenes/ciudades/'+img+'.png"/><div class="label-ciudad">'+label+'</div></div>'
@@ -460,7 +468,7 @@ function arkesia(f){
 } 
 var anteriormvl = ''; 
 function cambiarMapa(e,f,latlng) { 
-    document.title = e.nombre;
+    document.title = e.nombre; 
     if(myobj) { 
         myobj.remove();
     }    
@@ -470,9 +478,13 @@ function cambiarMapa(e,f,latlng) {
     `;  
     anteriormvl = '';
     anteriormvl = f;
-    myobj = document.getElementById("mapid"); 
-    if(latlng){ 
-        var splitlatlang = latlng.split(','); 
+    myobj = document.getElementById("mapid");   
+    var splitlatlang;
+    if(latlng){
+        splitlatlang = latlng.split(',');
+    }
+    if (typeof splitlatlang === 'object' && latlng !== null){ 
+        map.remove();
         map = L.map('mapid', {
             crs: L.CRS.Simple,  
             minZoom: -1,
@@ -482,19 +494,56 @@ function cambiarMapa(e,f,latlng) {
             zoomSnap: 0.5,
             wheelPxPerZoomLevel:200,
             zoomDelta: 0.5,
-        }).setView([splitlatlang[0],splitlatlang[1]], 1);  
-    }else{ 
+        }).setView([splitlatlang[0],splitlatlang[1]], 5);  
+    }
+    if(e.nombre == "Elgacia"){ 
+        var zoomLevel = -1;
+        var initialCoordinates = [450, 465];
+        var bounds = L.latLngBounds(
+            [initialCoordinates[0] - 580, initialCoordinates[1] - 580],
+            [initialCoordinates[0] + 580, initialCoordinates[1] + 580]
+          );
         map = L.map('mapid', {
             crs: L.CRS.Simple,
-            minZoom: -1,
+            minZoom: 0.8,
             maxZoom: 2, 
+            maxBounds: bounds,
             id: e.nombre,
             anterior: e.anterior, 
+            maxBoundsViscosity: 0.8,
             zoomSnap: 0.5,
             wheelPxPerZoomLevel:200,
-            zoomDelta: 0.5,
+            zoomDelta: 0.5, 
         });  
-        map.setView([200,500], -1);
+        map.setView(initialCoordinates, zoomLevel); 
+    } 
+    else{  
+        map.remove(); 
+        if (typeof splitlatlang === 'object' && latlng !== null){ 
+            map = L.map('mapid', {
+                crs: L.CRS.Simple,
+                minZoom: -1,
+                maxZoom: 2, 
+                id: e.nombre,
+                anterior: e.anterior, 
+                zoomSnap: 0.5,
+                wheelPxPerZoomLevel:200,
+                zoomDelta: 0.5,
+            });  
+            map.setView([splitlatlang[0],splitlatlang[1]], 5); 
+        }else{
+            map = L.map('mapid', {
+                crs: L.CRS.Simple,
+                minZoom: -1,
+                maxZoom: 2, 
+                id: e.nombre,
+                anterior: e.anterior, 
+                zoomSnap: 0.5,
+                wheelPxPerZoomLevel:200,
+                zoomDelta: 0.5,
+            });  
+            map.setView([200,500], -1);
+        }
     }
     map.zoomControl.remove();   
     L.control.zoom({

@@ -9673,6 +9673,24 @@ var ciudades = {
                 ],
             }, 
             "geometry": { "type": "Point", "coordinates": [96.8125,-48.34375] } 
+        },
+        {
+            "type": "Feature", 
+            "properties": {
+                "anterior": "arkesia", 
+                "tipo": "ciudad",
+                "zona": "Elgacia",
+                "title": "elgacia",
+                "img": "elgacia",
+                "nombre": "Elgacia",   
+                "subzonaciudad":[[317.5,232.5]],
+                "subzonaciudadNombre":[["Ereonnor"]], 
+                "subzonaciudad2":[[532,301]],
+                "subzonaciudadNombre2":[["Monte Filantos"]],
+                "subzonaciudad3":[[450.5,609]],
+                "subzonaciudadNombre3":[["Jardín de Hestera"]]  
+            },
+            "geometry": { "type": "Point", "coordinates": [46.125,-66.125]} 
         }
     ]
 }  

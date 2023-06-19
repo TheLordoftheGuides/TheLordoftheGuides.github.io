@@ -195,7 +195,8 @@ function cargarMarcadores(e){
             if(nombreCancion == 'cancionderesonancia') enlace = 'a'; 
             if(nombreCancion == 'canciondeeternidad') enlace = 'a';
             if(nombreCancion == 'canciondeprimavera') enlace = 'a';
-            if(nombreCancion == 'canciondeloslobos') enlace = 'a';
+            if(nombreCancion == 'canciondeloslobos') enlace = 'a'; 
+            if(nombreCancion == 'canciondeloslazenitas') enlace = 'a';
             if(nombreCancion == 'armaromantica') enlace = 'a';
             if(enlace != 'a'){
                 cancionClass.bindPopup('<div style="display:block; text-align:center; min-width:250px; margin-bottom: 27px"><p>'+canciondesc+'</p><p><a class="guia" href="'+enlace+'" target="_blank">Cómo conseguir la canción</a></p></div>',claserel).addTo(map)
@@ -291,20 +292,27 @@ function cargarMarcadores(e){
     } 
     if(e.mazmorra){ 
         for (var i = 0; i < e.mazmorra.length; i++){ 
-            var nombreMazmorra = String(e.nombreMazmorra[i]); 
-            var mazmorraClass = L.marker(e.mazmorra[i],{icon: iconoMazmorra}).bindTooltip("<div><span class='descripcioneslabel text-shadow' style='color:#f57b0f'>"+nombreMazmorra+" </span></div>",{permanent: false,direction: 'right',interactive:true});
-            mazmorraClass.addTo(map);
-            $(mazmorraClass._icon).addClass('mazmorra'); 
-            mazmorraClass.on('click', function (e) { 
-                var tempMaz = nombreMazmorra.toLowerCase().replace(/ /g,'');
-                mazmorras.features.forEach(e => 
-                    { 
-                        if(e.properties.nombre.toLowerCase().replace(/ /g,'') == tempMaz){ 
-                            cambiarMapa(e.properties, e.geometry.coordinates);
+            var nombreMazmorra = String(e.nombreMazmorra[i]);
+            if (nombreMazmorra == "Kayangel") {
+                var mazmorraClass = L.marker(e.mazmorra[i],{icon: iconoMazmorra}).bindTooltip("<div><span class='descripcioneslabel text-shadow' style='color:#f57b0f'>"+nombreMazmorra+" </span></div>",{permanent: false,direction: 'right',interactive:true});
+                mazmorraClass.bindPopup('<div style="text-align:center; padding:15px; min-width:250px">No hay Mokokos en la mazmorra.</div>',claserel);
+                mazmorraClass.addTo(map);
+                $(mazmorraClass._icon).addClass('mazmorra'); 
+            }else{ 
+                var mazmorraClass = L.marker(e.mazmorra[i],{icon: iconoMazmorra}).bindTooltip("<div><span class='descripcioneslabel text-shadow' style='color:#f57b0f'>"+nombreMazmorra+" </span></div>",{permanent: false,direction: 'right',interactive:true});
+                mazmorraClass.addTo(map);
+                $(mazmorraClass._icon).addClass('mazmorra'); 
+                mazmorraClass.on('click', function (e) { 
+                    var tempMaz = nombreMazmorra.toLowerCase().replace(/ /g,'');
+                    mazmorras.features.forEach(e => 
+                        { 
+                            if(e.properties.nombre.toLowerCase().replace(/ /g,'') == tempMaz){ 
+                                cambiarMapa(e.properties, e.geometry.coordinates);
+                            }
                         }
-                    }
-                );     
-            }); 
+                    );     
+                }); 
+            }
         }
     }
     if(e.mazmorra2){ 
@@ -677,8 +685,22 @@ function cargarMarcadores(e){
     if(e.subzonaciudad){
         for (var i = 0; i < e.subzonaciudad.length; i++){
             var nombreSubzona = String(e.subzonaciudadNombre[i]);
-            var subzonaClass = L.marker(e.subzonaciudad[i],{icon: iconoSubzona}).bindTooltip("<div><span class='descripcioneslabel text-shadow' style='color:#f57b0f'>"+nombreSubzona+" </span></div>",{permanent: false,direction: 'right',interactive:true});
-             
+            var subzonaClass;
+            if (nombreSubzona == "Ereonnor"){ 
+                subzonaClass = L.marker(e.subzonaciudad[i],
+                    {
+                        icon: L.icon({
+                        iconUrl: './imagenes/ciudades/ereonnor.png', 
+                        iconSize:     [100, 100],
+                        iconAnchor:   [50, 50],
+                        popupAnchor:  [0, 0]
+                    })}
+                    );
+            }
+            if(nombreSubzona !== "Ereonnor"){  
+                subzonaClass = L.marker(e.subzonaciudad[i],{icon: iconoSubzona}).bindTooltip("<div><span class='descripcioneslabel text-shadow' style='color:#f57b0f'>"+nombreSubzona+" </span></div>",{permanent: false,direction: 'right',interactive:true});
+            }
+            
             subzonaClass.addTo(map);
             $(subzonaClass._icon).addClass('escaleras'); 
             subzonaClass.on('click', function (e) { 
@@ -702,8 +724,21 @@ function cargarMarcadores(e){
     }
     if(e.subzonaciudad2){
         for (var i = 0; i < e.subzonaciudad2.length; i++){
-            var nombreSubzona2 = String(e.subzonaciudadNombre2[i]); 
-            var subzonaClass2 = L.marker(e.subzonaciudad2[i],{icon: iconoSubzona}).bindTooltip("<div><span class='descripcioneslabel text-shadow' style='color:#f57b0f'>"+nombreSubzona2+" </span></div>",{permanent: false,direction: 'right',interactive:true});;;
+            var nombreSubzona2 = String(e.subzonaciudadNombre2[i]);  
+            var subzonaClass2;
+            if (nombreSubzona2 == "Monte Filantos"){ 
+                subzonaClass2 = L.marker(e.subzonaciudad2[i],
+                    {
+                        icon: L.icon({
+                        iconUrl: './imagenes/ciudades/montefilantos.png', 
+                        iconSize:     [100, 100],
+                        iconAnchor:   [50, 50],
+                        popupAnchor:  [0, 0]
+                    })}
+                    );
+            }else{
+                subzonaClass2 = L.marker(e.subzonaciudad2[i],{icon: iconoSubzona}).bindTooltip("<div><span class='descripcioneslabel text-shadow' style='color:#f57b0f'>"+nombreSubzona2+" </span></div>",{permanent: false,direction: 'right',interactive:true});;;
+            }
             
             subzonaClass2.addTo(map);
             $(subzonaClass2._icon).addClass('escaleras'); 
@@ -719,6 +754,45 @@ function cargarMarcadores(e){
                 ciudades.features.forEach(e => 
                     { 
                         if(e.properties.nombre.toLowerCase().replace(/ /g,'') == tempSubzona2){ 
+                            cambiarMapa(e.properties, e.geometry.coordinates);
+                        }
+                    }
+                );       
+            }); 
+        }
+    }
+    if(e.subzonaciudad3){
+        for (var i = 0; i < e.subzonaciudad3.length; i++){
+            var nombreSubzona3 = String(e.subzonaciudadNombre3[i]);  
+            var subzonaClass3;
+            if (nombreSubzona3 == "Jardín de Hestera"){ 
+                subzonaClass3 = L.marker(e.subzonaciudad3[i],
+                    {
+                        icon: L.icon({
+                        iconUrl: './imagenes/ciudades/jardindehestera.png', 
+                        iconSize:     [100, 100],
+                        iconAnchor:   [50, 50],
+                        popupAnchor:  [0, 0]
+                    })}
+                    );
+            }else{
+                subzonaClass3 = L.marker(e.subzonaciudad3[i],{icon: iconoSubzona}).bindTooltip("<div><span class='descripcioneslabel text-shadow' style='color:#f57b0f'>"+nombreSubzona3+" </span></div>",{permanent: false,direction: 'right',interactive:true});
+            }
+            
+            subzonaClass3.addTo(map);
+            $(subzonaClass3._icon).addClass('escaleras'); 
+            subzonaClass3.on('click', function (e) { 
+                var tempSubzona3 = nombreSubzona3.toLowerCase().replace(/ /g,'');
+                subzonas.features.forEach(e => 
+                    { 
+                        if(e.properties.nombre.toLowerCase().replace(/ /g,'') == tempSubzona3){ 
+                            cambiarMapa(e.properties, e.geometry.coordinates);
+                        }
+                    }
+                ); 
+                ciudades.features.forEach(e => 
+                    { 
+                        if(e.properties.nombre.toLowerCase().replace(/ /g,'') == tempSubzona3){ 
                             cambiarMapa(e.properties, e.geometry.coordinates);
                         }
                     }

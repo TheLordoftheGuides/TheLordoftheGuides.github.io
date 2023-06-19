@@ -74,7 +74,7 @@
         <button onclick="toggleMarcador(this)" id="mokokotip">
           Mokokotip
         </button>
-      </div>
+      </div> 
       <div class="cluster-marcadores hidden" id="marcador-islaaventura">
         <img src="imagenes/iconos/iconos-arkesia/islaaventura.png" width="32" height="32" />
         <button onclick="toggleMarcador(this)" id="islasaventura">
@@ -193,6 +193,12 @@
         <img src="imagenes/iconos/armaromantica.png" width="32" height="32" />
         <button onclick="toggleMarcador(this)" id="armaromantica">
           Arma Romántica
+        </button>
+      </div> 
+      <div class="cluster-marcadores hidden" id="marcador-canciondeloslazenitas">
+        <img src="imagenes/iconos/canciondeloslazenitas.png" width="32" height="32" />
+        <button onclick="toggleMarcador(this)" id="canciondeloslazenitas">
+          Canción de los Lazenitas
         </button>
       </div> 
       <div class="cluster-marcadores hidden" id="marcador-slime">
@@ -434,8 +440,15 @@
           <div style="text-align: center; margin-top: 10px;">¡Gracias!</div>
         </div>
       </div>
-    </div>
+    </div> 
   </div>  
+  <div id="twitch-embed"></div>
+    <script src="https://player.twitch.tv/js/embed/v1.js"></script> 
+    <script type="text/javascript">
+      new Twitch.Player("twitch-embed", {
+        channel: "yoho_tv", 
+      });
+    </script>  
     <script src="js/ciudades.js"></script>
     <script src="js/subzonas.js"></script>
     <script src="js/mazmorras.js"></script>

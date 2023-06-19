@@ -292,11 +292,11 @@ function panto(irmapa, coordenadas){
     
 }
 function zoom(coords){ 
-    var latlng = coordenadas.split(','); 
+    var latlng = coords.split(','); 
     map.setView([latlng[0], latlng[1]], 5);
 }
-function pantoPrev(irmapa){  
-    var temporal = null; 
+function pantoPrev(irmapa, coords){  
+    var temporal = null;   
     ciudades.features.forEach(e => 
         { 
             if(e.properties.nombre.toLowerCase().replace(/ /g,'') == irmapa){  
@@ -325,7 +325,7 @@ function pantoPrev(irmapa){
         { 
             if(e.properties.nombre.toLowerCase().replace(/ /g,'') == irmapa){
                 temporal = irmapa;   
-                cambiarMapa(e.properties,e.geometry.coordinates);
+                cambiarMapa(e.properties,e.geometry.coordinates,coords);
             }
         }
     );   

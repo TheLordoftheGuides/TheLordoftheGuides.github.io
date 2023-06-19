@@ -131,15 +131,33 @@ a{
 	transition: 0.2s;
     width: 15px !important;
 	height: 29px !important;
-} 
-.ciudades:hover{  
-	box-shadow: -5px 0 25px rgb(255, 255, 255); 
 }  
+.ciudades:hover{
+	box-shadow: -5px 0 25px rgb(255, 255, 255) !important; 
+} 
+.elgacia:hover{
+	box-shadow: none !important;  
+}   
+#elgacia:hover{  
+	content: url(./imagenes/ciudades/elgaciahover.png);
+}  
+#elgacia{ 
+	display: inline;
+	margin: 0 auto;
+	margin-left: -16px;
+	margin-top: -16px;
+	height: 135px;
+	width: 135px;
+}
 .iconos-islapvp span{
 	text-shadow: 0px 0 0 red, 0px 0 0 red, 0 0px 0 red, 0 0px 0 red, 1px 1px red, 0px -1px 0 red, 1px -1px 0 red, 0px 0px 0 red;
 }
 .iconos-isla span{
 	text-shadow: 1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+}
+.elgaciacity{
+	margin: 0;
+display: block;
 }
 .div-iconos span{ 
 	min-width: 200px; 
@@ -425,6 +443,9 @@ a{
 }
 .unico{ 
 	background: linear-gradient(45deg, #ad460c, #49250b);
+}
+.pad5{
+	padding: 5px;
 }
 .obra-texto{color:#c0924e;}
 .habilidad-texto{color:#aa82ff;}
@@ -1220,6 +1241,26 @@ div::-webkit-scrollbar-thumb {
 		overflow:scroll
 	}
   }
+.image-cropper {
+	width: 100px !important;
+	max-width: 500px;
+	height: 100px; 
+	position: relative; 
+	border-radius: 50%; 
+    border: 3px solid;
+    animation-name: backgroundColorPalette;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;  
+}  
+@keyframes rotateBorder {
+	0% {
+	  transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(360deg);
+	}
+  }
 
 #twitch-embed{
   position: fixed;
@@ -1229,7 +1270,7 @@ div::-webkit-scrollbar-thumb {
 }  
 #twitch-embed iframe{
 	width: 300px;
-	height: 150px;
+	height: 172px;
 }
 @media only screen and (max-width: 1000px){
 	#twitch-embed{

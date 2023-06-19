@@ -102,6 +102,12 @@ armaromantica =  L.icon({
     iconAnchor:   [12, 12],
     popupAnchor:  [-4, -4]
 });
+canciondeloslazenitas =  L.icon({
+    iconUrl: './imagenes/iconos/canciondeloslazenitas.png', 
+    iconSize:     [22, 22],
+    iconAnchor:   [12, 12],
+    popupAnchor:  [-4, -4]
+});
 youtube =  L.icon({
     iconUrl: './imagenes/iconos/youtube.png', 
     iconSize:     [22, 22],
