@@ -623,6 +623,9 @@ function cambiarMapa(e,f,latlng) {
             arkesia(f); 
         }
         if(e.originalEvent.buttons == 2 && map.options.anterior != 'arkesia'){  
+            var toggleMarcadorRemove = document.getElementsByClassName("toggle-marcador");
+            while (toggleMarcadorRemove.length)
+            toggleMarcadorRemove[0].classList.remove("toggle-marcador");  
             pantoPrev(map.options.anterior);
         }
     } 

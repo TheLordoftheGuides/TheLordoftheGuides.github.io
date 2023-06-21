@@ -1068,7 +1068,7 @@ var subzonas = {
                 ],
                 "historiaadicionaldescripcion":[
                     [`<div style='padding: 0 10px 10px 10px; text-align: center;'>
-                    <h3 class='aventurero'>Otra historia nº 1 de Elgacia</h3>
+                    <h3 class='aventurero'>Otra historia nº 2 de Elgacia</h3>
                     Completa las misiones amarillas de <b class="questamarilla">Una melodía solitaria</b> y <b class="questamarilla">Canción del viento</b> para desbloquear la misión.
                     </div>`],
                 ],  
@@ -1710,6 +1710,17 @@ var subzonas = {
                     [`<div style='text-align:center'>Alcanza el nivel de afinidad de <b class="confiado">Confiado</b> con la <b class="afinidad">Profetisa Euclides</b> para conseguir el
                     <b class="unico-texto">Orpenectar</b>.
                     <p><img class="unico" src='./imagenes/ingrediente/orpenectar.png' /> </p>`],
+                ], 
+                "historiaadicional":[[-4,785.5]],
+                "historiaadicionaltitulo":[
+                    ["<span class='historiaadicionaltit text-shadow' style='margin-left: -135px'>Se acabó la espera</span>"],
+                    
+                ],
+                "historiaadicionaldescripcion":[
+                    [`<div style='padding: 0 10px 10px 10px; text-align: center;'>
+                    <h3 class='aventurero'>Otra historia nº 1 de Elgacia</h3>
+                    Completa la misión de la historia principal <b>Hacia donde apunta el dedo</b> para desbloquear la quest. Interactúa con el diario viejo del suelo para iniciar la cadena de misiones.
+                    </div>`],
                 ], 
                 
             }, 
