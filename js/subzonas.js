@@ -1365,7 +1365,7 @@ var subzonas = {
                     ["<span class='historiaocultatit text-shadow'>[6/6] Senda de Peregrinación</span>"], 
 
                     ["<span class='historiaocultatit text-shadow'>[1/2] La voz de Procyon</span>"], 
-                    ["<span class='historiaocultatit text-shadow'>[1/2] La voz de Procyon</span>"], 
+                    ["<span class='historiaocultatit text-shadow'>[2/2] La voz de Procyon</span>"], 
                 ],
                 "historiaodcultadescripcion":[
                     [`<div style='padding: 0 10px 10px 10px; text-align: center;'><h3 class='aventurero'>Historia oculta nº 3 de Elgacia</h3> 
