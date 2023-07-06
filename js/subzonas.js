@@ -1725,6 +1725,33 @@ var subzonas = {
                 
             }, 
             "geometry": { "type": "Point", "coordinates": [540.5,294]} 
-        }
+        },
+        { 
+            "type": "Feature", 
+            "properties": {
+                "anterior": "islamoko",
+                "tipo": "isla",
+                "zona": "Isla", 
+                "title": "islamoko2",
+                "nombre": "Isla Moko 2",  
+                "subzonaisla":[[-304,146]],
+                "subzonaislaNombre":[["Isla Moko"]],  
+                "mokokos": [[336,144],],  
+                "pasillosecreto": [
+                    [205.0609665440988,186.67619023324858]
+                ],
+                "pasillosecretodesc": [ 
+                    ["<div>Pulsa 'G' para llegar a la Mokoko.</div>"], 
+                ],
+                "fichadeisla" : [268,-136],  
+                "conseguirficha": [` 
+                    Derrota a Babayaba, la bruja malvada de la mazmorra, para conseguir la ficha de isla. La probabilidad de obtenerla es baja.  
+                    <div class="guiadiv"></div>
+                    En la mazmorra de Babayava también podéis conseguir <b>3 puntos de Sabiduría y un título </b>si conseguís derrotarla sin que os encarcele, es un logro oculto.
+                `], 
+                 
+            }, 
+            "geometry": { "type": "Point", "coordinates": [203.5,-167.140625]} 
+        },
     ]
 }

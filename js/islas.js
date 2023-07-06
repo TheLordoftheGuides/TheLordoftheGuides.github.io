@@ -3738,5 +3738,35 @@ var islas = {
             }, 
             "geometry": { "type": "Point", "coordinates": [220.78125,-118.65625] } 
         }, 
+        { 
+            "type": "Feature", 
+            "properties": {
+                "anterior": "arkesia", 
+                "tipo": "isla", 
+                "zona": "Isla",
+                "title": "islamoko",
+                "nombre": "Isla Moko",
+                "isladesc": "",
+                "horario": "Por confirmar",
+                "ilvl" : "250",  
+                "fichadeisla" : [268,-136],  
+                "conseguirficha": [` 
+                    Derrota a Babayaba, la bruja malvada de la mazmorra, para conseguir la ficha de isla. La probabilidad de obtenerla es baja.  
+                    <div class="guiadiv"></div>
+                    En la mazmorra de Babayava también podéis conseguir <b>3 puntos de Sabiduría y un título </b>si conseguís derrotarla sin que os encarcele, es un logro oculto.
+                `], 
+                "mokokos": [[630,648],],   
+                "subzonaisla":[[461,375]],
+                "subzonaislaNombre":[["Isla Moko 2"]], 
+                "mokokotip": [[100,-136]], 
+                "mokokotipnum": [["<b class='rainbow'>Mokoko extra</b>"]],
+                "mokokotipdesc": [
+                    [`La otra mokoko se encuentra dentro de la mazmorra:  
+                    <div class="guiadiv"><button onclick="panto('islamoko2','322.4406922210657,145.6639969244288')" class="guia">Mokoko</button></div>
+                    `], 
+                ], 
+            }, 
+            "geometry": { "type": "Point", "coordinates": [54.625,-198.5] } 
+        }, 
     ]
 }
