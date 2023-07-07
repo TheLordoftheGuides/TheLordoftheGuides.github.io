@@ -1587,38 +1587,44 @@ var subzonas = {
 
                     [`<div style='text-align:center'>Mata <b>Tortugas</b> por esta zona hasta conseguir, cómo mínimo,
                     <b class="raro-texto">4 Esencias de tortuga de cristal</b>.
-                    Aléjate a un lugar tranquilo y fíjate en tu barra de vida, aparecerá un beneficio que tardará menos de 1 segundo en expirar.
-                    En ese segundo tienes que utilizar 1 de las esencias de tortuga. Completa este proceso 4 veces con éxito sin moverte y 
+                    Aléjate a un lugar tranquilo y <b>(lee todo el proceso antes de darle clic)</b> y haz clic para consumir una de ellas y fíjate en tu barra de vida,
+                     aparecerá un beneficio que tardará menos de 1 segundo en expirar.
+                    En ese segundo tienes que utilizar 1 de las esencias de tortuga. Completa este proceso 3 veces con éxito sin moverte y 
                     podrás recoger el plato <b class="epico-texto">Nube de algodón de azúcar crepuscular</b> del suelo.
                     <p><img class="raro" src='./imagenes/ingrediente/esenciatortuga.png' /></p>`],
                     [`<div style='text-align:center'>Mata <b>Tortugas</b> por esta zona hasta conseguir, cómo mínimo,
                     <b class="raro-texto">4 Esencias de tortuga de cristal</b>.
-                    Aléjate a un lugar tranquilo y fíjate en tu barra de vida, aparecerá un beneficio que tardará menos de 1 segundo en expirar.
-                    En ese segundo tienes que utilizar 1 de las esencias de tortuga. Completa este proceso 4 veces con éxito sin moverte y 
+                    Aléjate a un lugar tranquilo y <b>(lee todo el proceso antes de darle clic)</b> y haz clic para consumir una de ellas y fíjate en tu barra de vida,
+                     aparecerá un beneficio que tardará menos de 1 segundo en expirar.
+                    En ese segundo tienes que utilizar 1 de las esencias de tortuga. Completa este proceso 3 veces con éxito sin moverte y 
                     podrás recoger el plato <b class="epico-texto">Nube de algodón de azúcar crepuscular</b> del suelo.
                     <p><img class="raro" src='./imagenes/ingrediente/esenciatortuga.png' /></p>`],
                     [`<div style='text-align:center'>Mata <b>Tortugas</b> por esta zona hasta conseguir, cómo mínimo,
                     <b class="raro-texto">4 Esencias de tortuga de cristal</b>.
-                    Aléjate a un lugar tranquilo y fíjate en tu barra de vida, aparecerá un beneficio que tardará menos de 1 segundo en expirar.
-                    En ese segundo tienes que utilizar 1 de las esencias de tortuga. Completa este proceso 4 veces con éxito sin moverte y 
+                    Aléjate a un lugar tranquilo y <b>(lee todo el proceso antes de darle clic)</b> y haz clic para consumir una de ellas y fíjate en tu barra de vida,
+                     aparecerá un beneficio que tardará menos de 1 segundo en expirar.
+                    En ese segundo tienes que utilizar 1 de las esencias de tortuga. Completa este proceso 3 veces con éxito sin moverte y 
                     podrás recoger el plato <b class="epico-texto">Nube de algodón de azúcar crepuscular</b> del suelo.
                     <p><img class="raro" src='./imagenes/ingrediente/esenciatortuga.png' /></p>`],
                     [`<div style='text-align:center'>Mata <b>Tortugas</b> por esta zona hasta conseguir, cómo mínimo,
                     <b class="raro-texto">4 Esencias de tortuga de cristal</b>.
-                    Aléjate a un lugar tranquilo y fíjate en tu barra de vida, aparecerá un beneficio que tardará menos de 1 segundo en expirar.
-                    En ese segundo tienes que utilizar 1 de las esencias de tortuga. Completa este proceso 4 veces con éxito sin moverte y 
+                    Aléjate a un lugar tranquilo y <b>(lee todo el proceso antes de darle clic)</b> y haz clic para consumir una de ellas y fíjate en tu barra de vida,
+                     aparecerá un beneficio que tardará menos de 1 segundo en expirar.
+                    En ese segundo tienes que utilizar 1 de las esencias de tortuga. Completa este proceso 3 veces con éxito sin moverte y 
                     podrás recoger el plato <b class="epico-texto">Nube de algodón de azúcar crepuscular</b> del suelo.
                     <p><img class="raro" src='./imagenes/ingrediente/esenciatortuga.png' /></p>`],
                     [`<div style='text-align:center'>Mata <b>Tortugas</b> por esta zona hasta conseguir, cómo mínimo,
                     <b class="raro-texto">4 Esencias de tortuga de cristal</b>.
-                    Aléjate a un lugar tranquilo y fíjate en tu barra de vida, aparecerá un beneficio que tardará menos de 1 segundo en expirar.
-                    En ese segundo tienes que utilizar 1 de las esencias de tortuga. Completa este proceso 4 veces con éxito sin moverte y 
+                    Aléjate a un lugar tranquilo y <b>(lee todo el proceso antes de darle clic)</b> y haz clic para consumir una de ellas y fíjate en tu barra de vida,
+                     aparecerá un beneficio que tardará menos de 1 segundo en expirar.
+                    En ese segundo tienes que utilizar 1 de las esencias de tortuga. Completa este proceso 3 veces con éxito sin moverte y 
                     podrás recoger el plato <b class="epico-texto">Nube de algodón de azúcar crepuscular</b> del suelo.
                     <p><img class="raro" src='./imagenes/ingrediente/esenciatortuga.png' /></p>`],
                     [`<div style='text-align:center'>Mata <b>Tortugas</b> por esta zona hasta conseguir, cómo mínimo,
                     <b class="raro-texto">4 Esencias de tortuga de cristal</b>.
-                    Aléjate a un lugar tranquilo y fíjate en tu barra de vida, aparecerá un beneficio que tardará menos de 1 segundo en expirar.
-                    En ese segundo tienes que utilizar 1 de las esencias de tortuga. Completa este proceso 4 veces con éxito sin moverte y 
+                    Aléjate a un lugar tranquilo y <b>(lee todo el proceso antes de darle clic)</b> y haz clic para consumir una de ellas y fíjate en tu barra de vida,
+                     aparecerá un beneficio que tardará menos de 1 segundo en expirar.
+                    En ese segundo tienes que utilizar 1 de las esencias de tortuga. Completa este proceso 3 veces con éxito sin moverte y 
                     podrás recoger el plato <b class="epico-texto">Nube de algodón de azúcar crepuscular</b> del suelo.
                     <p><img class="raro" src='./imagenes/ingrediente/esenciatortuga.png' /></p>`],
 

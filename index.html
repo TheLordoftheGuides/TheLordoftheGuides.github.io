@@ -44,7 +44,21 @@
 
   </head>
 
-  <body>  
+  <body>   
+    <script>
+      function getRandomNumber() {
+          return Math.floor(Math.random() * 100000); // Generate a random number
+      }
+
+      var scriptElements = document.querySelectorAll('script[src^="js/"]');
+
+      for (var i = 0; i < scriptElements.length; i++) {
+          var scriptElement = scriptElements[i];
+          var src = scriptElement.getAttribute('src');
+          var updatedSrc = src + '?v=' + getRandomNumber();
+          scriptElement.setAttribute('src', updatedSrc);
+      }
+    </script> 
     <!--CAMBIAR MAPA-->
   <div id="mySidebar" class="sidebar"> 
     <div id="myDropdown" class="dropdown-content">
@@ -448,7 +462,7 @@
       new Twitch.Player("twitch-embed", {
         channel: "yoho_tv", 
       });
-    </script>  
+    </script>   
     <script src="js/ciudades.js"></script>
     <script src="js/subzonas.js"></script>
     <script src="js/mazmorras.js"></script>
